@@ -5,7 +5,7 @@
 # =============================
 FROM node:14 AS build-frontend
 
-WORKDIR /app
+WORKDIR /app/frontend
 
 # Adjusted to the new file structure: copy from "frontend/"
 COPY ./frontend/package.json ./frontend/package-lock.json ./
@@ -18,7 +18,7 @@ RUN npm run build
 # =============================
 FROM golang:1.21.3 AS build-backend
 
-WORKDIR /app
+WORKDIR /app/backend
 
 # Adjusted to the new file structure: copy from "backend/"
 COPY ./backend/go.mod ./backend/go.sum ./
